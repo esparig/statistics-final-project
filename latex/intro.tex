@@ -1,0 +1,31 @@
+En el presente trabajo se expone el análisis estadístico de un conjunto de datos sobre el rendimiento de un programa para el cálculo de multiplicación de matrices en GPU \citep{ballesterripoll2017sobol}\citep{Nugteren2015}. 
+
+Para la generación de este conjunto de datos se ha medido el tiempo de ejecución de un producto de matrices A * B = C, donde todas las matrices tienen un tamaño de 2048 x 2048, utilizando un kernel SGEMM GPU parametrizable con 241 600 posibles combinaciones de parámetros. Para cada combinación probada, se realizaron 4 ejecuciones, cuyos resultados corresponden a las últimas 4 columnas del conjunto de datos. Todos los tiempos se miden en milisegundos. 
+
+Hay 14 parámetros, los primeros 10 son ordinales y solo pueden tomar hasta 4 valores diferentes de potencias de dos, y las últimas 4 variables son binarias. A continuación se describe cada uno de los parámetros:
+
+\begin{itemize}
+    \item  MWG: dimensión M del kernel (por ejemplo, 64, 128)
+    \item  NWG: dimensión N del kernel (por ejemplo, 64, 128)
+    \item  KWG : dimensión K del kernel (por ejemplo, 8, 16)
+    \item  MDIMC: \textit{threads} por grupo de trabajo en la dimensión M (por ejemplo, 8, 16, 32)
+    \item  NDIMC: \textit{threads} por grupo de trabajo en la dimensión N (por ejemplo, 8, 16, 32)
+    \item  MDIMA: dimensión resultante de la matriz A: KDIMA * MDIMA
+    \item  NDIMB : dimensión resultante de la matriz B: KDIMB * NDIMB
+    \item  KWI : factor de desenrollado del bucle KWG (menor o igual que KWG)
+    \item  VWM: ancho del vector de las matrices A y C (compatible con 1, 2, 4 y 8)
+    \item  VWN: ancho del vector de la matriz B (compatible con 1, 2, 4 y 8)
+    \item  STRM : usa el acceso con \textit{stride} dentro de un \textit{thread} en la dimensión M (1) o no (0)
+    \item  STRN : usa acceso con \textit{stride} dentro de un \textit{thread} en la dimensión N (1) o no (0)
+    \item  SA: usa la memoria local/compartida para almacenar en caché la matriz A (1) o no (0)
+    \item  SB: usa la memoria local/compartida para almacenar en caché la matriz B (1) o no (0)
+\end{itemize}
+
+
+De un total de 1 327 104 combinaciones de parámetros, solo 241 600 son posibles debido a varias restricciones del kernel. Este conjunto de datos contiene los resultados para todas estas combinaciones factibles. 
+
+El experimento se ejecutó en una estación de trabajo de escritorio con Ubuntu 16.04 Linux con un procesador Intel Core i5 (3.5GHz), 16GB RAM y una GPU NVidia Geforce GTX 680 4GB GF580 GTX-1.5GB. Se utilizó el kernel \textit{gemm\_fast} de la librería \textit{OpenCL CLTune} \citep{cltune}.
+
+En el presente trabajo de han desarrollado diversos scripts en Python para el análisis estadístico del conjunto de datos descrito. Para ello se han utilizado técnicas habituales del estado del arte\citep{Montgomery1996} mediante herramientas modernas de ciencia de datos\citep{vanderplas2016python}. 
+
+En la sección 2 se describen los objetivos del presente trabajo. En la sección 3 se describe la metodología seguida y el entorno utilizado para la experimentación. En la sección 4.1 se realiza un análisis descriptivo de los datos, en la sección 4.2 se realiza un análisis de la correlación de los distintos parámetros de entrada de los datos y en especial con respecto al tiempo de ejecución, en la sección 4.3 se busca un modelo de ajuste a nuestros datos. En la sección 5 se resumen los resultados. Y por último, en la sección 6 se exponen las conclusiones.

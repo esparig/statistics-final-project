@@ -1,0 +1,54 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[spanish,es-tabla]{babel}
+
+\usepackage{natbib}
+\usepackage{usebib}
+\usepackage{hyperref}
+\usepackage{pgf}
+\usepackage{graphicx}
+\title{
+  Análisis estadístico de un conjunto de datos sobre el rendimiento de un programa para el cálculo de multiplicación de matrices en GPU 
+  
+  \large
+  \hfill \break
+  Estadística y Métodos Matemáticos para la Investigación: Introducción a las Técnicas Estadísticas
+}
+\author{Estíbaliz Parcero Iglesias }
+
+\date{24 de abril de 2023}
+
+\begin{document}
+
+\bibinput{statBib}
+
+\maketitle
+
+\section{Introducción}
+\input{intro.tex}
+
+\section{Objetivos}
+\input{objetivos.tex}
+
+\section{Metodología}
+\input{metod}
+
+\section{Desarrollo}
+\subsection{Análisis descriptivo}
+\input{analdesc}
+\subsection{Análisis de correlación}
+\input{analcorr}
+\subsection{Análisis de la distribución}
+\input{analdist}
+
+\section{Resultados}
+\input{results}
+
+\section{Conclusiones}
+\input{conclus}
+
+\bibliographystyle{abbrv}
+\bibliography{statBib}
+
+\end{document}

@@ -1,0 +1,36 @@
+Se realizó un análisis descriptivo de las últimas 4 columnas del conjunto de datos, correspondientes a los tiempos de ejecución en milisegundos de 4 ejecuciones independientes utilizando los mismos parámetros. Los resultados se muestran en la Tabla \ref{table:runsdescribe} e indican que los tiempos de ejecución varían entre un mínimo de 13.25 y un máximo de 3397.08 milisegundos, con una media de 217.57 milisegundos y una desviación estándar de 368.75 milisegundos. Esto sugiere que hay una variabilidad significativa en los tiempos de ejecución para diferentes combinaciones de parámetros, y no se observa diferencia significativa entre las distintas ejecuciones según el orden de ejecución.
+
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{|l|l|l|l|l||l|}
+    \hline
+        $Run_i$ (ms) & 1 & 2 & 3 & 4 & Mean \\ \hline
+        count & 241600 & 241600 & 241600 & 241600 & 241600 \\ 
+        mean & 217.65 & 217.58 & 217.53 & 217.53 & 217.57 \\ 
+        std & 369.01 & 368.68 & 368.66 & 368.68 & 368.75 \\ 
+        min & 13.29 & 13.25 & 13.36 & 13.37 & 13.32 \\ 
+        25\% & 40.66 & 40.71 & 40.66 & 40.64 & 40.67 \\ 
+        50\% & 69.82 & 69.93 & 69.79 & 69.82 & 69.79 \\ 
+        75\% & 228.53 & 228.31 & 228.32 & 228.32 & 228.39 \\ 
+        max & 3339.63 & 3375.42 & 3397.08 & 3361.71 & 3341.51 \\ \hline
+    \end{tabular}
+    \caption{\label{table:runsdescribe}Resultados del análisis descriptivo básico para las ejecuciones y la media de las ejecuciones}
+\end{table}
+
+A continuación, se generó un histograma para visualizar la distribución de la media de los tiempos de ejecución de las 4 ejecuciones. Inicialmente, se generó un histograma utilizando los valores originales de la media, pero debido a la presencia de valores extremos, no se apreciaban claramente las diferencias en la distribución. Por lo tanto, se decidió transformar los datos aplicando el logaritmo natural a los valores de la media y generar un nuevo histograma utilizando los valores transformados. 
+
+El histograma resultante (figura \ref{figure:hist}) muestra una distribución más clara y permite apreciar mejor las diferencias en los tiempos de ejecución. Además, es posible observar fácilmente que la distribución no es una normal, lo cual puede apoyarse en la prueba de bondad de ajuste de Kolmogorov-Smirnov. 
+
+Los resultados de la prueba indican un valor del estadístico K-S de 0.14 y un p-valor de 0.00. Dado que el p-valor es menor que el nivel de significancia comúnmente utilizado de 0.05, se rechaza la hipótesis nula de que los datos siguen una distribución normal. 
+
+En el histograma mostrado se observan varios picos que sugieren que la presencia de múltiples subpoblaciones en tus datos. Cada subpoblación podría tener su propia distribución y estar asociada a diferentes combinaciones de parámetros utilizados en las ejecuciones.
+
+\begin{figure}[h]
+    \begin{center}
+        \scalebox{0.7}{\input{histogram-runs-log.pgf}}
+    \end{center}
+    \caption{\label{figure:hist}Histograma del logaritmo de la media de los tiempos de ejecución según las diferentes combinaciones de parámetros.}
+\end{figure}
+
+
+
