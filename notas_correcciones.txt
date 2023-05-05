@@ -1,0 +1,11 @@
+[0] El trabajo es muy interesante, está muy bien hecho y presentado. Te adjunto el documento con algunos comentarios que pueden resultarte de interés.
+La utilización del modelo mixto es muy útil en la práctica, sin embargo, dado que esto no se ha visto en el curso, pero sí el ANOVA o Componentes Principales, podrías haberlos usado para determinar qué parámetros influyen significativamente o no y en qué medida sobre el tiempo.  Los Componentes Principales también nos dan una idea de la estructura subyacente de factores (componentes) que correlacionan con el tiempo.
+
+[1] Cuidado al usar el término "significativo" en un contexto estadístico.
+Un error muy frecuente, es la confusión entre significación estadística e importancia práctica. El problema es de naturaleza semántica, y deriva de utilizar, para designar un concepto técnico estadístico concreto, un vocablo -“significativo”- que tiene un sentido diferente en el lenguaje habitual. Si la diferencia entre m y 2000 es “muy significativa estadísticamente”, la interpretación práctica correcta es que resulta casi seguro que dicha diferencia no es nula, y no necesariamente que la diferencia en cuestión sea muy importante. 
+
+[2] También es muy útil calcular los coeficientes normalizados de asimetría y curtosis.
+
+[3] ¿Qué criterio has usado para determinar si son valores extremos? 
+En estos caso un diagrama de caja puede ser más útil.
+
